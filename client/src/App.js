@@ -28,6 +28,10 @@ function App() {
         toast('Error fetching initial stocks in watchlist!')
       });
 
+    socket.addEventListener("error", (event) => {
+      toast('Error with websocket!')
+    });
+
     // for cleanup
     return () => {
       watchlist.forEach(stock => {
