@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
-const token = 'cp0le61r01qnigekhh50cp0le61r01qnigekhh5g'
+const token = '<YOUR_API_KEY_HERE>'
 const socket = new WebSocket(`wss://ws.finnhub.io?token=${token}`);
 
 function App() {
