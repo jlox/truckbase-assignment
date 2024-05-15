@@ -25,6 +25,7 @@ function App() {
       })
       .catch(err => {
         console.error(err);
+        toast('Error fetching initial stocks in watchlist!')
       });
 
     // for cleanup
@@ -77,6 +78,7 @@ function App() {
         })
         .catch(err => {
           console.error(err);
+          toast(`Error adding new stock ${newStock} to watchlist: `, err);
         });
     }
 
