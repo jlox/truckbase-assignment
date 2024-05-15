@@ -3,6 +3,7 @@ const cors = require('cors');
 
 // If I had set up PG, I would create a table with:
 // CREATE TABLE stonks (symbol varchar(10), time_added timestamp);
+// wouuld index symbol column
 
 const PORT = process.env.PORT || 3001;
 
