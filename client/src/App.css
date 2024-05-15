@@ -16,6 +16,10 @@
 table, th, td {
   border: 1px solid;
 }
+table {
+  width: 100%;
+  table-layout: fixed;
+}
 
 .App-header {
   background-color: #282c34;
