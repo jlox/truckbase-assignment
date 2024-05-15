@@ -78,6 +78,7 @@ function App() {
         .then((response) => {
           setWatchlist((prevWatchlist) => { return [...prevWatchlist, newStock]});
           socket.send(JSON.stringify({'type':'subscribe', 'symbol': newStock}))
+          setNewStock('');
           toast(`Successfully added ${newStock} to watchlist!`)
         })
         .catch(err => {
@@ -120,7 +121,7 @@ function App() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <Toaster />
         <label>Stock to add to watchlist: </label>
-        <input type="text" id="new-stock" name="new-stock" onChange={(e) => handleChange(e)}/>
+        <input value={newStock} type="text" id="new-stock" name="new-stock" onChange={(e) => handleChange(e)}/>
         <input type="submit"/>
       </form>
 
