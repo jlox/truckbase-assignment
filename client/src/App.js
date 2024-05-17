@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
-const token = '<YOUR_API_KEY_HERE>'
+const token = 'cp0le61r01qnigekhh50cp0le61r01qnigekhh5g'
 const socket = new WebSocket(`wss://ws.finnhub.io?token=${token}`);
 
 function App() {
@@ -25,12 +25,7 @@ function App() {
       })
       .catch(err => {
         console.error(err);
-        toast('Error fetching initial stocks in watchlist!')
       });
-
-    socket.addEventListener("error", (event) => {
-      toast('Error with websocket!')
-    });
 
     // for cleanup
     return () => {
@@ -78,12 +73,10 @@ function App() {
         .then((response) => {
           setWatchlist((prevWatchlist) => { return [...prevWatchlist, newStock]});
           socket.send(JSON.stringify({'type':'subscribe', 'symbol': newStock}))
-          setNewStock('');
           toast(`Successfully added ${newStock} to watchlist!`)
         })
         .catch(err => {
           console.error(err);
-          toast(`Error adding new stock ${newStock} to watchlist: `, err);
         });
     }
 
@@ -121,7 +114,7 @@ function App() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <Toaster />
         <label>Stock to add to watchlist: </label>
-        <input value={newStock} type="text" id="new-stock" name="new-stock" onChange={(e) => handleChange(e)}/>
+        <input type="text" id="new-stock" name="new-stock" onChange={(e) => handleChange(e)}/>
         <input type="submit"/>
       </form>
 
